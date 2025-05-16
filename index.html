@@ -111,7 +111,7 @@
         .theme-toggle {
             display: flex;
             align-items: center;
-            margin-left: 1rem; /* Set to match nav-links gap */
+            margin-left: 1rem;
         }
 
         .theme-btn {
@@ -608,14 +608,19 @@
         }
 
         .project-img {
-            height: 220px;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
+            background-color: var(--dark-2);
+        }
+
+        body.light-mode .project-img {
+            background-color: #ffffff;
         }
 
         .project-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
@@ -646,6 +651,73 @@
         .project-links {
             display: flex;
             gap: 1.2rem;
+        }
+
+        /* Certificates Section */
+        #certificates {
+            background-color: var(--dark-1);
+            transition: background-color 0.3s ease;
+        }
+
+        body.light-mode #certificates {
+            background-color: var(--light);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .certificate-card {
+            background-color: var(--dark-2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--dark-3);
+        }
+
+        body.light-mode .certificate-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .certificate-img {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background-color: var(--dark-2);
+        }
+
+        body.light-mode .certificate-img {
+            background-color: #ffffff;
+        }
+
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-card:hover .certificate-img img {
+            transform: scale(1.1);
+        }
+
+        .certificate-info {
+            padding: 2rem;
+        }
+
+        .certificate-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
         }
 
         /* Contact Section */
@@ -783,7 +855,8 @@
                 gap: 1.2rem;
             }
 
-            .projects-grid {
+            .projects-grid,
+            .certificates-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -834,8 +907,44 @@
 
             .achievements-card li {
                 padding-left: 2.5rem;
-                font-size: 2rem;
+                font-size: 1rem;
             }
+        }
+
+        /* Visit Site Button */
+        .visit-site-wrapper {
+            text-align: center;
+            margin: 3rem 0;
+            perspective: 1000px;
+        }
+
+        .visit-site-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(270deg, #ff00cc, #00c6ff, #66bb6a, #ff9900, #ff0066);
+            background-size: 1000% 1000%;
+            animation: colorFlow 10s ease infinite;
+            border-radius: 50px;
+            text-decoration: none;
+            transform: translateZ(15px);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), inset 2px 2px 8px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .visit-site-btn:hover {
+            transform: translateZ(30px) rotateY(10deg);
+            letter-spacing: 2px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), inset 3px 3px 10px rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes colorFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
@@ -850,8 +959,8 @@
                 <a href="#achievements">Achievements</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
                 <a href="#contact">Contact</a>
-                <div class="☀️"
             </div>
             <div class="theme-toggle">
                 <button class="theme-btn" id="theme-toggle-btn">
@@ -979,50 +1088,6 @@
         </div>
     </section>
 
-    <div class="visit-site-wrapper">
-        <a href="https://zexaera-websie.vercel.app/" target="_blank" class="visit-site-btn">🌐 Visit My Site 🚀</a>
-      </div>
-      
-      <style>
-      .visit-site-wrapper {
-        text-align: center;
-        margin-top: 50px;
-        perspective: 1000px;
-      }
-      
-      .visit-site-btn {
-        display: inline-block;
-        padding: 18px 40px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #fff;
-        background: linear-gradient(270deg, #ff00cc, #00c6ff, #66bb6a, #ff9900, #ff0066);
-        background-size: 1000% 1000%;
-        animation: colorFlow 10s ease infinite;
-        border-radius: 50px;
-        text-decoration: none;
-        transform: translateZ(15px);
-        transition: all 0.4s ease;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25),
-                    inset 2px 2px 8px rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(4px);
-      }
-      
-      .visit-site-btn:hover {
-        transform: translateZ(30px) rotateY(10deg);
-        letter-spacing: 2px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35),
-                    inset 3px 3px 10px rgba(255, 255, 255, 0.4);
-      }
-      
-      @keyframes colorFlow {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      </style>
-      
-
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
@@ -1030,7 +1095,7 @@
             <div class="projects-grid">
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/3a86ff/ffffff?text=E-Commerce+Platform" alt="E-Commerce Platform">
+                        <img src="https://via.placeholder.com/600x337/3a86ff/ffffff?text=E-Commerce+Platform" alt="E-Commerce Platform">
                     </div>
                     <div class="project-info">
                         <h3>E-Commerce Platform</h3>
@@ -1043,7 +1108,7 @@
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/3a86ff/ffffff?text=Task+Manager" alt="Task Management App">
+                        <img src="https://via.placeholder.com/600x337/3a86ff/ffffff?text=Task+Manager" alt="Task Management App">
                     </div>
                     <div class="project-info">
                         <h3>Productivity Dashboard</h3>
@@ -1056,7 +1121,7 @@
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/3a86ff/ffffff?text=Health+Tracker" alt="Health Tracking App">
+                        <img src="https://via.placeholder.com/600x337/3a86ff/ffffff?text=Health+Tracker" alt="Health Tracking App">
                     </div>
                     <div class="project-info">
                         <h3>Health & Fitness Tracker</h3>
@@ -1071,83 +1136,65 @@
         </div>
     </section>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        /* Certificates Section */
-        .certificates {
-            padding: 50px;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-        .certificates h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .slider {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            position: relative;
-        }
-        .slides {
-            display: flex;
-            width: 500%;
-            animation: slide 25s infinite;
-        }
-        .slides img {
-            width: 20%;
-            height: auto;
-            object-fit: contain;
-        }
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            20% { transform: translateX(0); }
-            25% { transform: translateX(-20%); }
-            45% { transform: translateX(-20%); }
-            50% { transform: translateX(-40%); }
-            70% { transform: translateX(-40%); }
-            75% { transform: translateX(-60%); }
-            95% { transform: translateX(-60%); }
-            100% { transform: translateX(-80%); }
-        }
-    </style>
-</head>
-<body>
     <!-- Certificates Section -->
-    <section class="certificates">
-        <h2>My Certificates</h2>
-        <div class="slider">
-            <div class="slides">
-                <img src="https://iili.io/3497pjt.jpg" alt="HTML Course Certificate">
-                <img src="https://iili.io/3497muI.jpg" alt="Graphic Design Course Certificate">
-                <img src="https://iili.io/3497DyN.jpg" alt="Advance Excel Course Certificate">
-                <img src="https://iili.io/3497tvp.jpg" alt="Web Development Diploma">
-                <img src="https://iili.io/349Yd6G.jpg" alt="Tally Prime Course Certificate">
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">My Certificates</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="certificate-img">
+                        <img src="https://iili.io/3497pjt.jpg" alt="HTML Course Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>HTML Course Certificate</h3>
+                    </div>
+                </div>
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="certificate-img">
+                        <img src="https://iili.io/3497muI.jpg" alt="Graphic Design Course Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Graphic Design Course Certificate</h3>
+                    </div>
+                </div>
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="certificate-img">
+                        <img src="https://iili.io/3497DyN.jpg" alt="Advance Excel Course Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Advance Excel Course Certificate</h3>
+                    </div>
+                </div>
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="certificate-img">
+                        <img src="https://iili.io/3497tvp.jpg" alt="Web Development Diploma">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Web Development Diploma</h3>
+                    </div>
+                </div>
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="certificate-img">
+                        <img src="https://iili.io/349Yd6G.jpg" alt="Tally Prime Course Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Tally Prime Course Certificate</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-</body>
-</html>
 
-                    
+    <!-- Visit Site Button -->
+    <div class="visit-site-wrapper">
+        <a href="https://zexaera-websie.vercel.app/" target="_blank" class="visit-site-btn">🌐 Visit My Site 🚀</a>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2 class="section-title" data-aos="fade-right">Get In Touch</h2>
-            <div class="contact-form" data-aos="fade-up">
+tests            <div class="contact-form" data-aos="fade-up">
                 <form>
                     <div class="form-group">
                         <label for="name">Your Name</label>
