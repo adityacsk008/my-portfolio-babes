@@ -1071,6 +1071,78 @@
         </div>
     </section>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Certificates Section */
+        .certificates {
+            padding: 50px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .certificates h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .slider {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .slides {
+            display: flex;
+            width: 500%;
+            animation: slide 25s infinite;
+        }
+        .slides img {
+            width: 20%;
+            height: auto;
+            object-fit: contain;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(0); }
+            25% { transform: translateX(-20%); }
+            45% { transform: translateX(-20%); }
+            50% { transform: translateX(-40%); }
+            70% { transform: translateX(-40%); }
+            75% { transform: translateX(-60%); }
+            95% { transform: translateX(-60%); }
+            100% { transform: translateX(-80%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Certificates Section -->
+    <section class="certificates">
+        <h2>My Certificates</h2>
+        <div class="slider">
+            <div class="slides">
+                <img src="https://iili.io/3497pjt.jpg" alt="HTML Course Certificate">
+                <img src="https://iili.io/3497muI.jpg" alt="Graphic Design Course Certificate">
+                <img src="https://iili.io/3497DyN.jpg" alt="Advance Excel Course Certificate">
+                <img src="https://iili.io/3497tvp.jpg" alt="Web Development Diploma">
+                <img src="https://iili.io/349Yd6G.jpg" alt="Tally Prime Course Certificate">
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+                    
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
